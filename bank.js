@@ -39,6 +39,29 @@ for(const [r,name]of [['CH3','Nitromethane'],['CH2CH3','Nitroethane'],['CH(CH3)2
 for(const [r,name]of SUBS){const g=graph();atom(g,'c','C',285,190);atom(g,'n1','N',405,105,1,1);atom(g,'n2','N',405,270,2,1);bond(g,'c','n1',2);bond(g,'c','n2');attach(g,'r',r,'c',135,190);addVariedRes('rv-m-amidine-'+name.replace(/\W/g,''),r==='H'?'Formamidine':'N-unsubstituted '+name+' amidine','moderate',g,[move(LP('n2'),BD('n2','c')),move(BD('c','n1'),LP('n1'))],false,'Amidine charge-separated contributor')}
 for(const [r,name]of [['CH3','methyl'],['CH2CH3','ethyl'],['CH(CH3)2','isopropyl'],['C6H5','phenyl'],['C6H11','cyclohexyl']]){const g=graph(),pts=[[95,230],[205,166],[320,230],[435,166],[550,230]];pts.forEach(([x,y],i)=>atom(g,'c'+i,'C',x,y,i===0?2:i===4?1:1,i===0?1:0));bond(g,'c0','c1');bond(g,'c1','c2',2);bond(g,'c2','c3');bond(g,'c3','c4',2);group(g,'r',r,660,166);bond(g,'c4','r');addVariedRes('rv-h-pentadienyl-'+name,name+'-substituted pentadienyl anion','hard',g,[move(LP('c0'),BD('c0','c1')),move(BD('c1','c2'),BD('c2','c3')),move(BD('c3','c4'),LP('c4'))],false,'Pentadienyl anion delocalization')}
 for(const [r,name]of SUBS){const g=graph(),pts=[[235,105],[330,160],[330,270],[235,325],[140,270],[140,160]];pts.forEach(([x,y],i)=>atom(g,'c'+i,'C',x,y,i===0?0:1));for(let i=0;i<6;i++)bond(g,'c'+i,'c'+((i+1)%6),[0,2,4].includes(i)?2:1);atom(g,'n','N',235,0,2,1);bond(g,'n','c0');if(r!=='H'){g.atoms.find(a=>a.id==='c5').h=0;attach(g,'r',r,'c5',35,100)}addVariedRes('rv-h-aniline-'+name.replace(/\W/g,''),(r==='H'?'Aniline':'2-'+name+'aniline')+' · para contributor','hard',g,[move(LP('n'),BD('n','c0')),move(BD('c0','c1'),BD('c1','c2')),move(BD('c2','c3'),LP('c3'))],false,'Aniline donation into the aromatic ring')}
+
+// Five additional hard aromatic examples. Each reaches the para contributor in one complete arrow set.
+function aromaticRing(){const g=graph(),pts=[[285,105],[380,160],[380,270],[285,325],[190,270],[190,160]];pts.forEach(([x,y],i)=>atom(g,'c'+i,'C',x,y,i===0?0:1));for(let i=0;i<6;i++)bond(g,'c'+i,'c'+((i+1)%6),[0,2,4].includes(i)?2:1);return g}
+{
+ const g=aromaticRing();atom(g,'o','O',285,0,0,2);bond(g,'o','c0');attach(g,'m','CH3','o',390,-35);
+ addVariedRes('rv-h-aromatic-anisole','Anisole · para contributor','hard',g,[move(LP('o'),BD('o','c0')),move(BD('c0','c1'),BD('c1','c2')),move(BD('c2','c3'),LP('c3'))],false,'Lone-pair donation into an aromatic ring')
+}
+{
+ const g=aromaticRing();g.atoms.find(a=>a.id==='c0').h=1;
+ addVariedRes('rv-h-aromatic-benzene','Benzene · alternate Kekulé contributor','hard',g,[move(BD('c0','c1'),BD('c1','c2')),move(BD('c2','c3'),BD('c3','c4')),move(BD('c4','c5'),BD('c5','c0'))],false,'Benzene resonance')
+}
+{
+ const g=aromaticRing();atom(g,'b','C',285,0,2,1);bond(g,'b','c0');
+ addVariedRes('rv-h-aromatic-benzyl-anion','Benzyl anion · para contributor','hard',g,[move(LP('b'),BD('b','c0')),move(BD('c0','c1'),BD('c1','c2')),move(BD('c2','c3'),LP('c3'))],false,'Benzylic anion delocalization')
+}
+{
+ const g=aromaticRing();atom(g,'b','C',285,0,2,0);bond(g,'b','c0');
+ addVariedRes('rv-h-aromatic-benzyl-cation','Benzyl cation · para contributor','hard',g,[move(BD('c0','c1'),BD('b','c0')),move(BD('c2','c3'),BD('c1','c2'))],false,'Benzylic cation delocalization')
+}
+{
+ const g=aromaticRing();atom(g,'n','N',285,0,0,0);atom(g,'o1','O',205,-60,0,3);atom(g,'o2','O',365,-60,0,2);bond(g,'n','c0');bond(g,'n','o1');bond(g,'n','o2',2);
+ addVariedRes('rv-h-aromatic-nitrobenzene','Nitrobenzene · para contributor','hard',g,[move(BD('c0','c1'),BD('n','c0')),move(BD('c2','c3'),BD('c1','c2')),move(BD('n','o2'),LP('o2'))],false,'Electron withdrawal from an aromatic ring')
+}
 const reorderedResonance=[];for(const level of ['easy','moderate','hard']){const original=QUESTION_BANK.filter(q=>q.level===level&&!q.id.startsWith('rv-')),varied=QUESTION_BANK.filter(q=>q.level===level&&q.id.startsWith('rv-'));let oi=0,vi=0;while(oi<original.length||vi<varied.length){for(let n=0;n<2&&oi<original.length;n++)reorderedResonance.push(original[oi++]);if(vi<varied.length)reorderedResonance.push(varied[vi++])}}QUESTION_BANK.splice(0,QUESTION_BANK.length,...reorderedResonance);
 // Acid/base building blocks. Explicit transferable H is kept separate from implicit H labels.
 function basePart(type){const g=graph(),x=150,y=180;let donor='base',name,productName,hOffset={x:90,y:60};
@@ -73,7 +96,8 @@ const ACID_PICKS={
  hard:[71,77,83,89,95,72,78,84,90,96,73,79,85,91,97,74,80,86,92,98]
 };
 const PRACTICE_BANK=[];
-for(const level of ['easy','moderate','hard'])PRACTICE_BANK.push(...QUESTION_BANK.filter(q=>q.topic==='resonance'&&q.level===level).slice(0,20));
+const EXTRA_AROMATIC_IDS=new Set(['rv-h-aromatic-anisole','rv-h-aromatic-benzene','rv-h-aromatic-benzyl-anion','rv-h-aromatic-benzyl-cation','rv-h-aromatic-nitrobenzene']);
+for(const level of ['easy','moderate','hard']){const levelQuestions=QUESTION_BANK.filter(q=>q.topic==='resonance'&&q.level===level);PRACTICE_BANK.push(...levelQuestions.slice(0,20));if(level==='hard')PRACTICE_BANK.push(...levelQuestions.filter(q=>EXTRA_AROMATIC_IDS.has(q.id)))}
 function swapAcidSides(question){const q=clone(question);for(const g of [q.start,q.product])for(const a of g.atoms)a.x=590-a.x;const[base,acid,conjugateAcid,conjugateBase]=q.roles;q.roles=[acid,base,conjugateBase,conjugateAcid];q.roleAnswers=['Acid','Base','Conjugate base','Conjugate acid'];q.title=acid+' + '+base;q.id+='-swapped';return q}
 function randomizedSideMask(size){const positions=Array.from({length:size},(_,i)=>i);for(let i=positions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[positions[i],positions[j]]=[positions[j],positions[i]]}return new Set(positions.slice(0,Math.floor(size/2)))}
 for(const level of ['easy','moderate','hard']){const swapped=randomizedSideMask(ACID_PICKS[level].length);PRACTICE_BANK.push(...ACID_PICKS[level].map((n,i)=>{const q=QUESTION_BANK.find(q=>q.id==='a'+String(n).padStart(3,'0'));return swapped.has(i)?swapAcidSides(q):q}))}
