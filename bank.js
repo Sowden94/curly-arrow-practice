@@ -48,7 +48,9 @@ function aromaticRing(){const g=graph(),pts=[[285,105],[380,160],[380,270],[285,
 }
 {
  const g=aromaticRing();g.atoms.find(a=>a.id==='c0').h=1;
- addVariedRes('rv-h-aromatic-benzene','Benzene · alternate Kekulé contributor','hard',g,[move(BD('c0','c1'),BD('c1','c2')),move(BD('c2','c3'),BD('c3','c4')),move(BD('c4','c5'),BD('c5','c0'))],false,'Benzene resonance')
+ addVariedRes('rv-h-aromatic-benzene','Benzene · alternate Kekulé contributor','hard',g,[move(BD('c0','c1'),BD('c1','c2')),move(BD('c2','c3'),BD('c3','c4')),move(BD('c4','c5'),BD('c5','c0'))],false,'Benzene resonance');
+ // Either cyclic arrow direction gives the same alternate Kekulé contributor.
+ QUESTION_BANK[QUESTION_BANK.length-1].alternativeMoves=[[move(BD('c0','c1'),BD('c5','c0')),move(BD('c2','c3'),BD('c1','c2')),move(BD('c4','c5'),BD('c3','c4'))]]
 }
 {
  const g=aromaticRing();atom(g,'b','C',285,0,2,1);bond(g,'b','c0');
