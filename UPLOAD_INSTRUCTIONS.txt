@@ -1,13 +1,16 @@
-Upload and replace these four files in the root of the GitHub repository:
+Upload all 12 files in this folder to the root of the GitHub repository.
 
-- index.html
-- curly.html
-- naming.html
-- newman.html
+Choose the option to replace files with the same names.
 
-Then delete these two files from the GitHub repository:
+The package includes every file required by the three remaining practice units:
 
-- functional.html
-- functional.js
+- Curly Arrow Practice
+- Alkane Naming Practice
+- Newman Projection Practice
 
-No other site files need to be changed for this update.
+If functional.html or functional.js are still present in GitHub, delete them.
+
+After committing the upload, wait about one minute and force-refresh the website:
+
+- Mac: Command + Shift + R
+- Windows: Ctrl + Shift + R
