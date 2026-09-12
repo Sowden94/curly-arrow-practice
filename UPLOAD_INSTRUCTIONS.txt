@@ -1,0 +1,13 @@
+Upload and replace these four files in the root of the GitHub repository:
+
+- index.html
+- curly.html
+- naming.html
+- newman.html
+
+Then delete these two files from the GitHub repository:
+
+- functional.html
+- functional.js
+
+No other site files need to be changed for this update.
