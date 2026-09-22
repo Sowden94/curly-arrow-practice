@@ -35,6 +35,38 @@ const buildIdentify=level=>{let chiralIndex=0,achiralIndex=0;return identifyMix[
 const banks={identify:{easy:buildIdentify('easy'),moderate:buildIdentify('moderate'),hard:buildIdentify('hard')},assign:{easy:buildAssign('easy'),moderate:buildAssign('moderate'),hard:buildAssign('hard')}};
 // Groups are stored in CIP order; permutations change only their drawing positions.
 banks.priority=Object.fromEntries(['easy','moderate','hard'].map(level=>[level,Array.from({length:20},(_,i)=>({level,groups:[...chiralSets[level][(i*3)%10]],perm:[...perms[(i*7+3)%20]]}))]));
+// Each alkene carbon carries two distinct ligands in descending CIP order.
+// The second pass changes the relative positions, giving ten E and ten Z
+// questions at each difficulty without changing the group priorities.
+const ezSets={
+ easy:[
+  [['Br','H'],['Cl','H']],[['Me','H'],['Me','H']],[['Cl','H'],['Me','H']],[['F','H'],['Br','H']],[['Et','H'],['Me','H']],
+  [['I','H'],['Cl','H']],[['Br','Me'],['Cl','H']],[['Cl','Me'],['F','H']],[['Me','H'],['F','H']],[['Br','H'],['Et','H']]
+ ],
+ moderate:[
+  [['OH','Me'],['Br','H']],[['OMe','OH'],['Et','H']],[['NH2','Me'],['Cl','H']],[['NH2','Et'],['OH','Me']],[['CH2OH','Me'],['Et','H']],
+  [['CHO','Me'],['Cl','H']],[['CO2H','CHO'],['Cl','Me']],[['CH2Cl','CH2OH'],['F','H']],[['iPr','Et'],['Br','Me']],[['CHO','Et'],['CO2H','Me']]
+ ],
+ hard:[
+  [['CHO','CH2OH'],['CO2H','iPr']],[['CH2Cl','CO2H'],['CHO','CH2OH']],[['CH2OH','iPr'],['CHO','Et']],[['CO2H','CHO'],['CH2Cl','CH2OH']],[['CH2Cl','CHO'],['CO2H','iPr']],
+  [['CO2H','CH2OH'],['CHO','Pr']],[['CH2Cl','CH2OH'],['CHO','iPr']],[['CHO','iPr'],['CH2OH','Pr']],[['CHO','CH2OH'],['CO2H','Et']],[['CH2Cl','CO2H'],['CH2OH','iPr']]
+ ]
+};
+function buildEZ(level){const questions=Array.from({length:20},(_,i)=>{
+ const [left,right]=ezSets[level][(i*7)%10],leftHighUpper=i%3!==0;
+ const answer=(i<10 ? i%2===0 : i%2!==0)?'Z':'E';
+ return{level,left,right,leftHighUpper,rightHighUpper:answer==='Z'?leftHighUpper:!leftHighUpper,answer};
+ });
+ // Stable shuffles give each level a different, non-predictable E/Z sequence.
+ let seed={easy:8173,moderate:4987,hard:12041}[level];
+ for(let i=questions.length-1;i>0;i--){seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;const j=(seed>>>0)%(i+1);[questions[i],questions[j]]=[questions[j],questions[i]]}
+ if(level==='easy'){
+  const sample=questions.findIndex(q=>q.left[0]==='Me'&&q.right[0]==='Me'&&q.answer==='Z');
+  [questions[0],questions[sample]]=[questions[sample],questions[0]];
+ }
+ return questions;
+}
+banks.ez=Object.fromEntries(['easy','moderate','hard'].map(level=>[level,buildEZ(level)]));
 function evaluatePriorities(item,values){
  if(values.length!==4||values.some(v=>!Number.isInteger(v)||v<1||v>4))return'incomplete';
  if(new Set(values).size!==4)return'duplicate';
@@ -91,7 +123,7 @@ function faceTouchesBox(a,b,box){
  return true;
 }
 function drawLabelledBond(slot,key,spec=attachmentSpec(key,slot.side)){
- const {text,atom,index}=spec,origin=slot.origin||center;
+ const {text,atom,index}=spec,origin=slot.origin||center,bondLength=slot.bondLength||BOND;
  const label=el('text',{x:0,y:0,'text-anchor':'start',class:'chiral-label',style:'stroke:none','data-group':key,'data-attachment-index':index},text);
  svg.append(label);
  labelMeasure.font=getComputedStyle(label).font;
@@ -114,12 +146,15 @@ function drawLabelledBond(slot,key,spec=attachmentSpec(key,slot.side)){
   const touches=full.glyphs.some(g=>faceTouchesBox(a,b,{left:g.left-ax+ux*offset-clearance,right:g.right-ax+ux*offset+clearance,top:g.top-ay+uy*offset-clearance,bottom:g.bottom-ay+uy*offset+clearance}));
   if(touches)near=offset;else far=offset;
  }
- const anchor=point(origin,slot.angle,BOND+far);
+ const anchor=point(origin,slot.angle,bondLength+far);
  label.setAttribute('x',anchor.x-ax);label.setAttribute('y',anchor.y-ay);
  label.setAttribute('data-atom-x',anchor.x);label.setAttribute('data-atom-y',anchor.y);
  label.setAttribute('data-origin-x',origin.x);label.setAttribute('data-origin-y',origin.y);label.setAttribute('data-angle',slot.angle);
- drawBond(slot,point(origin,slot.angle,BOND));
+ drawBond(slot,point(origin,slot.angle,bondLength));
  return{anchor,box:{left:anchor.x+box.left,right:anchor.x+box.right,top:anchor.y+box.top,bottom:anchor.y+box.bottom}};
+}
+function drawEZMethyl(slot){
+ return drawLabelledBond(slot,'Me');
 }
 function drawBond(slot,target){
  const start=slot.start||slot.origin||center;
@@ -141,13 +176,17 @@ function drawBond(slot,target){
   svg.append(el('line',{x1:start.x+(a.x-start.x)*t,y1:start.y+(a.y-start.y)*t,x2:start.x+(b.x-start.x)*t,y2:start.y+(b.y-start.y)*t,class:'chiral-hash'}));
  }
 }
-function continuationAngle(slot){const upper=slot.angle<0;return slot.angle+(slot.side==='left'?(upper?-Math.PI/3:Math.PI/3):(upper?Math.PI/3:-Math.PI/3))}
+function continuationAngle(slot){
+ if(slot.ez)return slot.side==='left'?(slot.angle<0?-Math.PI:Math.PI):0;
+ const upper=slot.angle<0;return slot.angle+(slot.side==='left'?(upper?-Math.PI/3:Math.PI/3):(upper?Math.PI/3:-Math.PI/3));
+}
 function drawExpandedGroup(slot,key){
+ const origin=slot.origin||center,bondLength=slot.bondLength||BOND;
  if(key==='CH2Cl'||key==='CH2OH'){
   // The unlabeled vertex is CH2. A separate bond makes C-Cl / C-O explicit.
-  const carbon=point(center,slot.angle,BOND),angle=continuationAngle(slot);
+  const carbon=point(origin,slot.angle,bondLength),angle=continuationAngle(slot);
   drawBond({...slot,joinAngle:angle},carbon);
-  drawLabelledBond({origin:carbon,angle,kind:'line',side:Math.cos(angle)<0?'left':'right'},key==='CH2Cl'?'Cl':'OH');
+  drawLabelledBond({origin:carbon,angle,kind:'line',side:Math.cos(angle)<0?'left':'right',bondLength:slot.bondLength},key==='CH2Cl'?'Cl':'OH');
   return;
  }
  // Methylamino: show all three bonds at nitrogen, so none appears to end on H.
@@ -157,11 +196,48 @@ function drawExpandedGroup(slot,key){
   const tx=(ux>0?box.right-anchor.x:anchor.x-box.left)/Math.max(Math.abs(ux),1e-9);
   const ty=(uy>0?box.bottom-anchor.y:anchor.y-box.top)/Math.max(Math.abs(uy),1e-9);
   const start=point(anchor,direction,Math.min(tx,ty)+5.2);
-  drawLabelledBond({origin:anchor,start,angle:direction,kind:'line',side:ux<0?'left':'right'},group);
+  const branch={origin:anchor,start,angle:direction,kind:'line',side:ux<0?'left':'right',bondLength:slot.bondLength};
+  if(slot.ez&&group==='Me')drawBond(branch,point(anchor,direction,slot.bondLength||BOND));
+  else drawLabelledBond(branch,group);
  }
 }
-function drawAlkyl(slot,key){const first=point(center,slot.angle,BOND),nextAngle=continuationAngle(slot);drawBond({...slot,joinAngle:nextAngle},first);if(key==='iPr'){const a=point(first,slot.angle-Math.PI/3,BOND),b=point(first,slot.angle+Math.PI/3,BOND);svg.append(el('line',{x1:first.x,y1:first.y,x2:a.x,y2:a.y,class:'chiral-bond'}),el('line',{x1:first.x,y1:first.y,x2:b.x,y2:b.y,class:'chiral-bond'}));return}const second=point(first,nextAngle,BOND);svg.append(el('line',{x1:first.x,y1:first.y,x2:second.x,y2:second.y,class:'chiral-bond'}));if(key==='Pr'){const third=point(second,slot.angle,BOND);svg.append(el('line',{x1:second.x,y1:second.y,x2:third.x,y2:third.y,class:'chiral-bond'}))}}
-function draw(item){svg.replaceChildren();const names=[],alkyl=new Set(['Et','Pr','iPr']);slots.forEach((slot,i)=>{const key=item.groups[item.perm[i]],g=G[key];names.push(g.name);if(alkyl.has(key)){drawAlkyl(slot,key);return}if(['CH2Cl','CH2OH','NMe'].includes(key)){drawExpandedGroup(slot,key);return}drawLabelledBond(slot,key)});svg.setAttribute('aria-label',`Tetrahedral carbon attached to ${names.join(', ')}. The upper-left bond is a solid wedge and the upper-right bond is a hashed wedge.`)}
+function drawAlkyl(slot,key){
+ const origin=slot.origin||center,bondLength=slot.bondLength||BOND,first=point(origin,slot.angle,bondLength),nextAngle=continuationAngle(slot);
+ drawBond({...slot,joinAngle:nextAngle},first);
+ if(key==='iPr'){
+  for(const angle of [slot.angle-Math.PI/3,slot.angle+Math.PI/3]){
+   const branch={origin:first,angle,kind:'line',side:Math.cos(angle)<0?'left':'right',bondLength};
+   drawBond(branch,point(first,angle,bondLength));
+  }
+  return;
+ }
+ const second=point(first,nextAngle,bondLength);
+ drawBond({origin:first,kind:'line'},second);
+ if(key==='Pr')drawBond({origin:second,kind:'line'},point(second,slot.angle,bondLength));
+}
+function drawSubstituent(slot,key){
+ if(['Et','Pr','iPr'].includes(key))drawAlkyl(slot,key);
+ else if(['CH2Cl','CH2OH','NMe'].includes(key))drawExpandedGroup(slot,key);
+ else drawLabelledBond(slot,key);
+}
+function drawEZ(item){
+ svg.replaceChildren();const left={x:291,y:195},right={x:349,y:195},bondLength=48;
+ // The main stroke shares its carbon vertices with all four substituent bonds.
+ // The second stroke is offset and shortened, as in a conventional bond-line alkene.
+ svg.append(el('line',{x1:left.x,y1:195,x2:right.x,y2:195,class:'chiral-bond'}),el('line',{x1:left.x+7,y1:203,x2:right.x-7,y2:203,class:'chiral-bond'}));
+ const positions=[
+  {origin:left,angle:-Math.PI*2/3,side:'left',kind:'line',ez:true,bondLength,key:item.left[item.leftHighUpper?0:1]},
+  {origin:left,angle:Math.PI*2/3,side:'left',kind:'line',ez:true,bondLength,key:item.left[item.leftHighUpper?1:0]},
+  {origin:right,angle:-Math.PI/3,side:'right',kind:'line',ez:true,bondLength,key:item.right[item.rightHighUpper?0:1]},
+  {origin:right,angle:Math.PI/3,side:'right',kind:'line',ez:true,bondLength,key:item.right[item.rightHighUpper?1:0]}
+ ];
+ positions.forEach(({key,...slot})=>{
+  if(key==='Me')drawEZMethyl(slot);
+  else drawSubstituent(slot,key);
+ });
+ svg.setAttribute('aria-label',`Alkene with ${G[positions[0].key].name} above and ${G[positions[1].key].name} below the left carbon; ${G[positions[2].key].name} above and ${G[positions[3].key].name} below the right carbon.`);
+}
+function draw(item){if(mode==='ez'){drawEZ(item);return}svg.replaceChildren();const names=[];slots.forEach((slot,i)=>{const key=item.groups[item.perm[i]];names.push(G[key].name);drawSubstituent(slot,key)});svg.setAttribute('aria-label',`Tetrahedral carbon attached to ${names.join(', ')}. The upper-left bond is a solid wedge and the upper-right bond is a hashed wedge.`)}
 window.addEventListener('resize',()=>draw(active()[index]));
 document.fonts.ready.then(()=>draw(active()[index]));
 function fillMenu(){$('chiral-question').replaceChildren();active().forEach((_,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`Question ${i+1}`;$('chiral-question').append(o)})}
@@ -184,18 +260,21 @@ function answerButtons(){
   }
   $('chirality-options').replaceChildren();return;
  }
- const choices=mode==='identify'?[['chiral','Chiral'],['achiral','Achiral']]:[['R','R'],['S','S']];
+ const choices=mode==='identify'?[['chiral','Chiral'],['achiral','Achiral']]:mode==='ez'?[['E','E'],['Z','Z']]:[['R','R'],['S','S']];
  $('chirality-options').replaceChildren(...choices.map(([value,label])=>{const b=document.createElement('button');b.type='button';b.dataset.answer=value;b.textContent=label;b.setAttribute('aria-pressed','false');b.onclick=()=>{if(answered)return;selected=value;[...$('chirality-options').children].forEach(x=>x.setAttribute('aria-pressed',String(x===b)))};return b}));
 }
 function setFeedback(text,state=''){feedback.textContent=text;feedback.dataset.state=state}
 function repeated(groups){return groups.find((g,i)=>groups.indexOf(g)!==i)}
 function priorityText(item){return item.groups.map((g,i)=>`${i+1} ${G[g].name}`).join(' > ')}
-function update(){const item=active()[index];selected='';answered=false;hintLevel=0;$('chiral-hint').disabled=false;$('chiral-check').disabled=false;$('chiral-family').textContent=level[0].toUpperCase()+level.slice(1);$('chiral-prompt').textContent=mode==='identify'?'Is this molecule chiral or achiral?':mode==='priority'?'Assign priorities 1–4 to the four groups.':'Assign the configuration of the stereocentre.';
- $('chiral-view-note').textContent=mode==='priority'?'Use the selectors above and below the drawing to rank each group. 1 = highest priority; 4 = lowest. Wedge direction does not change priority.':'A solid wedge points towards you; a hashed wedge points away from you.';
- $('chiral-count').textContent=`Question ${index+1} of ${active().length}`;$('chiral-score').textContent=`Score: ${score} / ${attempts}`;$('chiral-progress').style.width=`${(index+1)/active().length*100}%`;$('chiral-question').value=index;answerButtons();draw(item);setFeedback(mode==='identify'?'Compare the four groups attached to the tetrahedral carbon.':mode==='priority'?'Use each number once, then select Check answer.':'Rank the four groups, orient priority 4 away, then trace 1 → 2 → 3.')}
+function update(){const item=active()[index];selected='';answered=false;hintLevel=0;$('chiral-hint').disabled=false;$('chiral-check').disabled=false;$('chiral-family').textContent=level[0].toUpperCase()+level.slice(1);$('chiral-prompt').textContent=mode==='identify'?'Is this molecule chiral or achiral?':mode==='priority'?'Assign priorities 1–4 to the four groups.':mode==='ez'?'Is this alkene E or Z?':'Assign the configuration of the stereocentre.';
+ $('chiral-view-note').textContent=mode==='priority'?'Use the selectors above and below the drawing to rank each group. 1 = highest priority; 4 = lowest. Wedge direction does not change priority.':mode==='ez'?'Compare the higher-priority group on each carbon of the double bond. Same side = Z; opposite sides = E.':'A solid wedge points towards you; a hashed wedge points away from you.';
+ $('chiral-count').textContent=`Question ${index+1} of ${active().length}`;$('chiral-score').textContent=`Score: ${score} / ${attempts}`;$('chiral-progress').style.width=`${(index+1)/active().length*100}%`;$('chiral-question').value=index;answerButtons();draw(item);setFeedback(mode==='identify'?'Compare the four groups attached to the tetrahedral carbon.':mode==='priority'?'Use each number once, then select Check answer.':mode==='ez'?'Rank the two groups attached to each alkene carbon, then compare the higher-priority groups.':'Rank the four groups, orient priority 4 away, then trace 1 → 2 → 3.')}
 function hint(){if(answered)return;const item=active()[index];hintLevel=Math.min(3,hintLevel+1);
  if(mode==='priority'){
   setFeedback(hintLevel===1?'Hint 1/3: Compare the atoms directly attached to the central carbon. Higher atomic number means higher priority.':hintLevel===2?'Hint 2/3: For a tie, compare the next atoms in decreasing atomic number; stop at the first difference. Count duplicate atoms for double and triple bonds.':`Hint 3/3: ${G[item.groups[0]].name} has priority 1; ${G[item.groups[3]].name} has priority 4.`);return;
+ }
+ if(mode==='ez'){
+  setFeedback(hintLevel===1?'Hint 1/3: Choose the higher-priority group on each carbon of the double bond. Compare the directly attached atoms first.':hintLevel===2?'Hint 2/3: If those atoms tie, compare the next attached atoms in decreasing atomic number. Treat multiple bonds using duplicate atoms.':`Hint 3/3: Compare ${G[item.left[0]].name} on the left with ${G[item.right[0]].name} on the right. Are they on the same side or opposite sides?`);return;
  }
  if(mode==='identify'){const duplicate=repeated(item.groups);setFeedback(hintLevel===1?'Hint: A tetrahedral carbon is stereogenic only when all four attached groups are different.':duplicate?`Hint: Two attached groups are identical: ${G[duplicate].name}.`:'Hint: All four attached groups are different.');return}if(hintLevel===1){setFeedback(`Hint 1/3: Highest priority is ${G[item.groups[0]].name}; lowest priority is ${G[item.groups[3]].name}.`);return}if(hintLevel===2){setFeedback(`Hint 2/3: ${priorityText(item)}.`);return}setFeedback('Hint 3/3: View with priority 4 pointing away. Clockwise 1 → 2 → 3 is R; anticlockwise is S.')}
 function check(){
@@ -207,11 +286,11 @@ function check(){
   right=result==='correct';priorityControls.forEach(control=>control.disabled=true);
  }else{if(!selected){setFeedback('Choose an answer before checking.','incorrect');return;}right=selected===item.answer;}
  attempts++;if(right)score++;answered=true;$('chiral-hint').disabled=true;$('chiral-check').disabled=true;
- const explanation=mode==='identify'?(item.answer==='chiral'?'The tetrahedral carbon has four different substituents.':`The carbon has two identical ${G[repeated(item.groups)].name} groups.`):mode==='priority'?`Priorities (highest to lowest): ${priorityText(item)}.`:`Priorities: ${priorityText(item)}. The configuration is ${item.answer}.`;
+ const explanation=mode==='identify'?(item.answer==='chiral'?'The tetrahedral carbon has four different substituents.':`The carbon has two identical ${G[repeated(item.groups)].name} groups.`):mode==='priority'?`Priorities (highest to lowest): ${priorityText(item)}.`:mode==='ez'?`On the left, ${G[item.left[0]].name} outranks ${G[item.left[1]].name}; on the right, ${G[item.right[0]].name} outranks ${G[item.right[1]].name}. The higher-priority groups are on ${item.answer==='Z'?'the same':'opposite'} sides, so the alkene is ${item.answer}.`:`Priorities: ${priorityText(item)}. The configuration is ${item.answer}.`;
  setFeedback(`${right?'Correct.':'Incorrect.'} ${explanation}`,right?'correct':'incorrect');$('chiral-score').textContent=`Score: ${score} / ${attempts}`;
 }
-function setMode(next){mode=next;index=0;for(const name of ['identify','priority','assign'])$('chiral-mode-'+name).setAttribute('aria-pressed',String(next===name));fillMenu();update()}
+function setMode(next){mode=next;index=0;for(const name of ['identify','priority','assign','ez'])$('chiral-mode-'+name).setAttribute('aria-pressed',String(next===name));fillMenu();update()}
 function setLevel(next){level=next;index=0;document.querySelectorAll('[data-level]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.level===next)));fillMenu();update()}
-$('chiral-mode-identify').onclick=()=>setMode('identify');$('chiral-mode-priority').onclick=()=>setMode('priority');$('chiral-mode-assign').onclick=()=>setMode('assign');document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>setLevel(b.dataset.level));$('chiral-question').onchange=e=>{index=+e.target.value;update()};$('chiral-previous').onclick=()=>{index=(index+active().length-1)%active().length;update()};$('chiral-next').onclick=()=>{index=(index+1)%active().length;update()};$('chiral-hint').onclick=hint;$('chiral-check').onclick=check;fillMenu();update();
-if(window.location?.hash==='#priorities')setMode('priority');
+$('chiral-mode-identify').onclick=()=>setMode('identify');$('chiral-mode-priority').onclick=()=>setMode('priority');$('chiral-mode-assign').onclick=()=>setMode('assign');$('chiral-mode-ez').onclick=()=>setMode('ez');document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>setLevel(b.dataset.level));$('chiral-question').onchange=e=>{index=+e.target.value;update()};$('chiral-previous').onclick=()=>{index=(index+active().length-1)%active().length;update()};$('chiral-next').onclick=()=>{index=(index+1)%active().length;update()};$('chiral-hint').onclick=hint;$('chiral-check').onclick=check;fillMenu();update();
+if(window.location?.hash==='#priorities')setMode('priority');else if(window.location?.hash==='#ez')setMode('ez');
 })();
