@@ -1,7 +1,7 @@
 let topic='intro',level='easy',index=0,questions=[],placed=[],selected=null,drag=null,rolesDone=true,solved=false,hintLevel=0,hintMark=null;
 const finished=new Set();const $=id=>document.getElementById(id);const current=()=>questions[index];
 function say(s,state='neutral'){const el=$('feedback');el.setAttribute('data-state',state);el.textContent=state==='correct'?'Correct':(state==='incorrect'?'✕ Incorrect — ':'')+s}
-function incorrect(s){say(s,'incorrect')}
+function incorrect(s){say(`Try again. Hint: ${s}`,'incorrect')}
 function controls(){const locked=!rolesDone||solved||topic==='intro';$('undo').hidden=locked;$('clear').hidden=locked;$('check').hidden=solved||topic==='intro';$('hint').hidden=solved;$('check').textContent=rolesDone?'Check arrows':'Check labels';$('next').hidden=!solved;$('next').textContent=index===questions.length-1?(topic==='intro'?'Finish intro →':'Finish level →'):'Next question →'}
 function updateProgress(){const n=questions.filter(q=>finished.has(q.id)).length;$('count').textContent=`${topic==='intro'?'INTRO':level.toUpperCase()} · QUESTION ${index+1} / ${questions.length}`;$('score').textContent=`${n} complete`;$('progress').style.width=`${n/questions.length*100}%`}
 function roles(){const q=current(),acid=chemistryTopic(q)==='acid';$('left-label').textContent=acid?'Reactants':'Resonance structure A';$('right-label').textContent=acid?'Products':'Resonance structure B';$('relation').innerHTML=relationArrow(acid);$('relation').setAttribute('aria-label',acid?'Acid–base equilibrium':'Resonance: one double-headed arrow');$('reactant-roles').innerHTML='';$('product-roles').innerHTML='';if(!acid||q.topic==='intro')return;
