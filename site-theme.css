@@ -1,0 +1,60 @@
+/* Shared practice-page theme. Chemistry drawing styles remain in style.css. */
+.practice-page { background: #edf3f9; color: #163d68; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+.practice-page main { max-width: 1280px; padding: 32px 36px 30px; }
+.practice-page header { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 24px 22px 20px; background: #163d68; border: 0; border-radius: 4px; text-align: center; }
+.practice-page .brand { color: #fff; font-size: 32px; font-weight: 800; letter-spacing: -1.2px; }
+.practice-page .site-nav { justify-content: center; gap: 6px; width: 100%; }
+.practice-page .site-nav a { color: #fff; font-size: 14px; line-height: 1.4; padding: 9px 12px; border: 1px solid transparent; border-radius: 4px; }
+.practice-page .site-nav a:hover { background: #24517f; color: #fff; }
+.practice-page .site-nav a.active { background: #fff; color: #163d68; }
+.practice-page header a:focus-visible { outline: 3px solid #b7d7ff; outline-offset: 3px; }
+.practice-page .heading { text-align: center; max-width: none; margin: 30px auto 24px; }
+.practice-page h1 { font-size: clamp(28px, 3.2vw, 36px); line-height: 1.2; letter-spacing: -.8px; }
+.practice-page .heading p { max-width: 760px; margin: 10px auto 0; }
+.practice-page .topic-picker, .practice-page .mode-picker, .practice-page .level-picker, .practice-page .naming-levels { justify-content: center; }
+/* Centre topic rows; overflow falls back to the start so every tab stays reachable. */
+.practice-page :is(.mode-picker, .topic-picker) { justify-content: safe center; }
+.practice-page .question-picker { justify-content: center; }
+.practice-page .topic-picker button, .practice-page .mode-picker button, .practice-page .level-picker button, .practice-page .naming-levels button { border-radius: 4px; }
+.practice-page .level-picker button[aria-pressed=true], .practice-page .naming-levels button[aria-pressed=true] { background: #e6eef7; color: #163d68; border-color: #163d68; box-shadow: inset 0 -2px #163d68; }
+.practice-page .game { border: 1px solid #b9cadf; border-top: 4px solid #163d68; border-radius: 4px; box-shadow: none; background: #fff; }
+.practice-page .game > h2, .practice-page .game > .family, .practice-page .game > .view-note { text-align: center; }
+.practice-page .family { color: #163d68; }
+.practice-page #progress, .practice-page #name-progress, .practice-page #np-progress, .practice-page #ch-progress, .practice-page #chiral-progress { background: #163d68; }
+.practice-page footer { text-align: center; margin-top: 26px; padding-top: 20px; border-color: #c9d6e5; }
+@media (max-width: 800px) {
+ .practice-page main { padding: 24px 18px 28px; }
+ .practice-page header { padding: 22px 16px 18px; gap: 16px; }
+ .practice-page .site-nav a { padding: 8px 10px; }
+}
+@media (max-width: 520px) {
+ .practice-page main { padding: 18px 12px 24px; }
+ .practice-page .brand { font-size: 28px; }
+ .practice-page .site-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+ .practice-page .site-nav a { display: flex; align-items: center; justify-content: center; padding: 9px 6px; min-width: 0; }
+ .practice-page .site-nav a:last-child { grid-column: 1 / -1; }
+ .practice-page .heading { margin: 24px auto 20px; }
+}
+
+/* Action buttons also retain title case when their labels change in a task. */
+.practice-page .bottom button, .practice-page .draw-tools button { text-transform: capitalize; }
+
+/* Consistent, quieter toolbars throughout the practice sections. */
+.practice-page :is(.mode-picker, .topic-picker) { gap: 4px; padding-bottom: 12px; border-bottom: 1px solid #c9d6e5; }
+.practice-page :is(.mode-picker, .topic-picker) span,
+.practice-page :is(.naming-levels, .level-picker) span { display: none; }
+.practice-page :is(.mode-picker, .topic-picker) button { padding: 10px; }
+.practice-page :is(.mode-picker, .topic-picker) button[aria-pressed=false] { background: transparent; border-color: transparent; box-shadow: none; }
+.practice-page :is(.mode-picker, .topic-picker) button[aria-pressed=false]:hover { background: #e1eaf5; }
+.practice-page :is(.naming-levels, .level-picker) { width: max-content; max-width: 100%; gap: 0; flex-wrap: nowrap; margin: 16px auto 0; border: 1px solid #a9bed7; border-radius: 4px; overflow: hidden; background: #fff; }
+.practice-page :is(.naming-levels, .level-picker) button { min-width: 96px; border: 0; border-radius: 0; background: transparent; padding: 10px 18px; }
+.practice-page :is(.naming-levels, .level-picker) button + button { border-left: 1px solid #c9d6e5; }
+.practice-page :is(.naming-levels, .level-picker) button[aria-pressed=true] { background: #163d68; color: #fff; box-shadow: none; }
+.practice-page :is(.naming-levels, .level-picker) button:focus-visible { outline-offset: -3px; }
+.practice-page .question-picker { margin: 18px auto 20px; gap: 12px; }
+.practice-page .question-picker select { width: 320px; max-width: 100%; }
+@media (max-width: 520px) {
+ .practice-page :is(.naming-levels, .level-picker) button { min-width: 88px; padding: 10px 14px; }
+ .practice-page .question-picker { align-items: center; text-align: center; }
+ .practice-page .question-picker select { width: min(320px, 100%); }
+}

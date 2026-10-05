@@ -1,14 +1,7 @@
-Orgo 101 — GitHub Pages update — 2 October 2026
+Orgo 101 — Approved Private Demo Update, 4 October 2026
 
-1. Extract this ZIP.
-2. Upload the website files into the folder your GitHub Pages site publishes from (normally the repository root). Replace the matching existing files. Upload the contents directly, not the ZIP or an extra enclosing folder.
-3. Include CNAME; it preserves curlyarrowpractice.com. Include .nojekyll if your upload method supports it.
-4. Commit the uploaded files. Allow GitHub Pages to finish publishing, then open curlyarrowpractice.com and check Stereochemistry Practice.
+Extract this ZIP. Upload the website files into the existing GitHub Pages source folder, replacing files with the same names. Upload the extracted files, not the ZIP itself. Keep CNAME and .nojekyll. Do not change the Pages settings or domain. UPLOAD-INSTRUCTIONS.txt does not need to be uploaded.
 
-This is the complete website package matching the reviewed private demo, including all existing practice sections. No build or installation is required.
+Includes the navy design throughout, centred topic tabs, home page topic reveal, and a 500 ms hover delay with a 180 ms closing delay. All assets match the approved private demo. The chemistry question engines are unchanged by the design update.
 
-Latest additions: Stereochemistry Practice; corrected Fischer projections and R/S grading; stereoisomer relationships; stereocentre-first stereoisomer counting; hints and editable retries; molecular drawing and label corrections.
-
-Review: 420 chirality questions, independent chemistry verification, 820 wrong-answer/retry checks, chair regression checks, and local navigation/asset checks passed. A live browser/device pass was not included.
-
-Source revision: d5c5ffd20de5a6bd4dfb7196354d9747cdbd564e
+After GitHub Pages finishes deploying, check curlyarrowpractice.com in a fresh tab.
