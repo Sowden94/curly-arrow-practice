@@ -4472,6 +4472,2144 @@ const THERMO_BANK = {
         "explanation": "Correct diagrams: B, D. On a standard Gibbs free-energy diagram, products are favoured when the product level is lower."
       }
     ]
+  },
+  "products": {
+    "easy": [
+      {
+        "id": "products-easy-5",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              95,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              115,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-18",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              115,
+              10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              95,
+              -10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-11",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              55,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              75,
+              10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product A is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-1",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              115,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              55,
+              10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-7",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              35,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              55,
+              -50
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-10",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              55,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              75,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product A is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-14",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              55,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              95,
+              10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product A is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-8",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              95,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              75,
+              -10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-12",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              85,
+              -40
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              45,
+              0
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-6",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              95,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              75,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-17",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              35,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              75,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product A is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-19",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              105,
+              0
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              45,
+              -20
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-13",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              75,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              55,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-16",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              85,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              45,
+              -40
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-9",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              95,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              115,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-15",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              95,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              55,
+              10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-3",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              65,
+              0
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              85,
+              -40
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-2",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              85,
+              -40
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              65,
+              0
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-4",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              55,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              75,
+              10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product A is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-easy-20",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              55,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              95,
+              10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product A is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      }
+    ],
+    "moderate": [
+      {
+        "id": "products-moderate-2",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              75,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              100,
+              -15
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-1",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              70,
+              -5
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              50,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-16",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              75,
+              -5
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              90,
+              -25
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-7",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              55,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              35,
+              -5
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-19",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              55,
+              -40
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              75,
+              -5
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product A is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-13",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              80,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              75,
+              -25
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-12",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              80,
+              5
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              85,
+              -20
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-4",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              70,
+              -15
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              55,
+              -50
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-8",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              75,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              90,
+              -20
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-14",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              55,
+              5
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              80,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-11",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              105,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              55,
+              -35
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-10",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              75,
+              -40
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              40,
+              -10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-20",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              90,
+              -5
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              60,
+              -20
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-17",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              70,
+              0
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              85,
+              -40
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-18",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              95,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              75,
+              15
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-3",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              60,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              100,
+              0
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product A is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-6",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              60,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              80,
+              -20
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-9",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              110,
+              -15
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              70,
+              5
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-15",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              100,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              90,
+              -20
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-moderate-5",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              95,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              50,
+              -15
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      }
+    ],
+    "hard": [
+      {
+        "id": "products-hard-19",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              80,
+              -60
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              60,
+              0
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              10,
+              90,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "D",
+            "energies": [
+              10,
+              120,
+              -50
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-5",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              70,
+              -40
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              90,
+              -60
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              0,
+              50,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "D",
+            "energies": [
+              0,
+              60,
+              -70
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "C",
+          "thermodynamic": "D"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product C has the lowest activation free-energy barrier. Product D has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-20",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              110,
+              -40
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              100,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              20,
+              90,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "D",
+            "energies": [
+              20,
+              120,
+              -10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "C",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product C has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-6",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              60,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              100,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              10,
+              80,
+              -50
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "C"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product C has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-16",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              70,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              100,
+              -40
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              20,
+              80,
+              10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-2",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              70,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              80,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              0,
+              110,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "D",
+            "energies": [
+              0,
+              60,
+              -60
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "D",
+          "thermodynamic": "D"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product D has the lowest activation free-energy barrier. Product D has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product D is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-11",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              80,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              60,
+              0
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              20,
+              130,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "D",
+            "energies": [
+              20,
+              90,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "C"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product C has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-18",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              40,
+              -60
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              100,
+              -40
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              0,
+              80,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "D",
+            "energies": [
+              0,
+              70,
+              -70
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "D"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product D has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-17",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              90,
+              0
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              60,
+              -60
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              10,
+              110,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "D",
+            "energies": [
+              10,
+              100,
+              -10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-15",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              80,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              50,
+              -70
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              0,
+              90,
+              -40
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "B"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product B has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product B is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-14",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              90,
+              -40
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              80,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              0,
+              70,
+              -60
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "C",
+          "thermodynamic": "C"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product C has the lowest activation free-energy barrier. Product C has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product C is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-3",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              60,
+              -60
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              80,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              0,
+              70,
+              -10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product A is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-8",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              120,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              130,
+              10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              20,
+              60,
+              -10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "C",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product C has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-12",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              70,
+              -60
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              60,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              10,
+              80,
+              0
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-10",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              0,
+              110,
+              -70
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              0,
+              70,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              0,
+              90,
+              -20
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-9",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              50,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              80,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              10,
+              120,
+              0
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "A",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product A has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product A is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-13",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              70,
+              -60
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              50,
+              -30
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              10,
+              120,
+              -40
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "D",
+            "energies": [
+              10,
+              110,
+              -10
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-4",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              100,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              60,
+              -20
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              10,
+              120,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "B",
+          "thermodynamic": "A"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product B has the lowest activation free-energy barrier. Product A has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-1",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              20,
+              130,
+              0
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              20,
+              100,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              20,
+              90,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "D",
+            "energies": [
+              20,
+              60,
+              -30
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "D",
+          "thermodynamic": "C"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control.",
+        "explanation": "Product D has the lowest activation free-energy barrier. Product C has the lowest final Gibbs free energy and is favoured among the products at equilibrium.",
+        "note": ""
+      },
+      {
+        "id": "products-hard-7",
+        "prompt": "Identify the kinetic and thermodynamic products.",
+        "productProfiles": [
+          {
+            "label": "A",
+            "energies": [
+              10,
+              120,
+              -10
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "B",
+            "energies": [
+              10,
+              110,
+              0
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "C",
+            "energies": [
+              10,
+              50,
+              -50
+            ],
+            "axis": "gibbs"
+          },
+          {
+            "label": "D",
+            "energies": [
+              10,
+              70,
+              -40
+            ],
+            "axis": "gibbs"
+          }
+        ],
+        "products": {
+          "kinetic": "C",
+          "thermodynamic": "C"
+        },
+        "hint": "Kinetic: compare the barriers from the reactants. Thermodynamic: compare the final product energies. Assume similar rate prefactors and equilibration under thermodynamic control. The same product can be both.",
+        "explanation": "Product C has the lowest activation free-energy barrier. Product C has the lowest final Gibbs free energy and is favoured among the products at equilibrium. Product C is therefore both the kinetic and thermodynamic product.",
+        "note": ""
+      }
+    ]
   }
 };
 if (typeof module !== "undefined") module.exports = THERMO_BANK;

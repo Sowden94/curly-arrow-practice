@@ -1,11 +1,11 @@
-Orgo 101 - Compact GitHub Update - 7 October 2026
+Orgo 101 - GitHub Update v150 - 7 October 2026
 
 1. Extract this ZIP.
-2. Open your curly-arrow-practice repository on GitHub and choose Add file > Upload files.
-3. Upload ALL the extracted website files together into your existing GitHub Pages source folder, replacing matching names. Do not upload the ZIP or an enclosing folder.
-4. Commit the upload and wait for GitHub Pages to deploy. Keep your existing Pages settings.
+2. In your curly-arrow-practice GitHub repository, choose Add file > Upload files.
+3. Upload all extracted files together to your existing GitHub Pages source folder, replacing matching names. Do not upload the ZIP or an enclosing folder.
+4. Commit the upload and wait for GitHub Pages deployment. Keep the existing Pages settings and CNAME.
 5. If the old site appears, hard-refresh: Mac Command + Shift + R; Windows Ctrl + Shift + R.
 
-Molecule drawings are now included inside thermodynamics-bank.js. You do not need to upload a thermo-assets folder. If you already uploaded one, it can remain.
+This complete package contains 29 files. Molecule drawings are bundled into the question file; there is no separate image folder to upload. Previously uploaded thermo-assets folders can remain.
 
-This includes the complete current demo site. Thermodynamics contains Reaction Entropy and Reaction Diagrams, with 20 Easy, 20 Moderate and 20 Hard questions each. Reaction Enthalpy and Reaction Spontaneity are removed.
+Includes Thermodynamics and Kinetics Practice, with Reaction Entropy, Reaction Diagrams, and Kinetic and Thermodynamic Products. Each set has 20 Easy, 20 Moderate and 20 Hard questions. Reaction Spontaneity and Reaction Enthalpy remain removed. Includes shared-pathway diagrams, three/four-product Hard questions, compact answer choices and all approved spacing and label updates.

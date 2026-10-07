@@ -58,3 +58,6 @@
  .practice-page .question-picker { align-items: center; text-align: center; }
  .practice-page .question-picker select { width: min(320px, 100%); }
 }
+
+/* The selected tabs already identify the question type and difficulty. */
+.practice-page .game > .family { display: none !important; }
