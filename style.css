@@ -69,3 +69,12 @@ header{justify-content:space-between}.brand{text-decoration:none}.site-nav{displ
 .chiral-label.chiral-count-label{font-size:25px;stroke:none}.chiral-count-wedge{fill:#111}.chiral-count-dash{stroke:#111;stroke-width:2.2;stroke-linecap:butt}.chiral-count-hit{fill:transparent;cursor:pointer}.chiral-count-hit:hover,.chiral-count-hit:focus-visible{fill:#1265c615;stroke:#1265c6;stroke-width:2;outline:none}.chiral-count-selection{fill:#1265c61c;stroke:#1265c6;stroke-width:2.5;pointer-events:none}
 
 .chiral-count-bond{stroke-linecap:round;stroke-linejoin:round}
+
+/* Shared question footer: compact, right-aligned controls on every practice page. */
+.game .bottom{justify-content:flex-end;gap:10px;margin-top:36px;padding-top:24px;border-top:1px solid #d8e2ee}
+.game .bottom button{margin-left:0!important;flex:0 0 auto;font-size:15px}
+.game .bottom .quiet{border:1px solid #bfccdc;background:white;color:#132c48;padding:11px 15px}
+@media(max-width:520px){.game .bottom{gap:8px}.game .bottom button{padding:10px;font-size:14px}}
+
+/* Keep acid–base bonds, labels and arrows at one display scale across questions. */
+.reaction-canvas.practice-reaction{min-width:0;max-width:100%;height:auto!important;max-height:none;margin-inline:auto}

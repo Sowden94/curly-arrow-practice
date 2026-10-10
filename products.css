@@ -1,0 +1,32 @@
+.product-app{max-width:1120px;margin:auto}.product-game{padding:24px 28px}.product-prompt{display:flex;justify-content:center;align-items:center;min-height:190px;padding:12px 0 20px}.product-prompt-svg{width:auto;max-width:100%;height:210px;overflow:visible}.mechanism-step{border-top:1px solid #dbe5eb;padding:20px 0 8px}.step-heading{display:flex;align-items:center;gap:10px;margin-bottom:12px}.step-heading h3{margin:0;font-size:19px;color:#173b4b}.step-number{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#e5f0f3;color:#176078;font-weight:700}.mechanism-choices{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.mechanism-choices button{min-height:50px;font-weight:600}.mechanism-choices button.correct-choice{color:#17653d;border-color:#74ad90;background:#edf7f0}.mechanism-choices button.wrong-choice{color:#b12525;border-color:#d89292;background:#fff1f1}#p-type-feedback{margin:12px 0;font-size:14px;color:#536b76}#p-type-feedback[data-state=incorrect],#p-feedback[data-state=incorrect]{color:#b12525}#p-type-feedback[data-state=correct],#p-feedback[data-state=correct]{color:#17653d}.editor-section{border-top:1px solid #dbe5eb;padding-top:22px;margin-top:10px}.editor-section[hidden]{display:none}.editor-intro,.editor-help{color:#536b76;font-size:14px;line-height:1.6;margin:8px 0 14px}.structure-toolbar{display:flex;flex-wrap:wrap;gap:12px;background:#f3f7f9;border:1px solid #d6e3e9;border-radius:12px 12px 0 0;padding:12px}.tool-group{display:flex;flex-wrap:wrap;align-items:center;gap:5px}.tool-group-label{width:100%;font-size:11px;letter-spacing:.04em;font-weight:700;text-transform:uppercase;color:#607782;margin-bottom:1px}.structure-toolbar button{height:36px;min-width:36px;padding:5px 10px;border-radius:7px;font-size:14px}.structure-toolbar button[aria-pressed=true]{background:#176078;color:white;border-color:#176078}.editor-actions{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;border-left:1px solid #d6e3e9;border-right:1px solid #d6e3e9;background:#fbfdfe}.editor-actions button{font-size:13px;padding:7px 10px}.structure-editor{position:relative;border:1px solid #d6e3e9;background:white;overflow:hidden;border-radius:0 0 12px 12px}.structure-editor svg{display:block;width:100%;height:auto;min-height:260px;touch-action:none;user-select:none}.structure-editor svg:focus-visible{outline:3px solid #58a5bb;outline-offset:-4px}.editor-hit{cursor:crosshair;fill:transparent;stroke:transparent}.editor-hit:focus{outline:none}.editor-hit:focus-visible{stroke:#7cb6c8;stroke-width:2;fill:#c7e7f04d}.editor-status{display:flex;justify-content:space-between;gap:10px;padding:9px 1px;font-size:12px;color:#526d79}.editor-help{margin:2px 0 10px}.editor-guide{font-size:13px;color:#526d79;line-height:1.6}.editor-guide summary{cursor:pointer;color:#176078;font-weight:600}#p-empty{position:absolute;pointer-events:none;left:0;right:0;top:44%;text-align:center;color:#78909a;padding:20px;font-size:15px}#p-feedback{min-height:32px;padding:13px 0;line-height:1.5;font-size:15px}.product-game button:disabled{opacity:.55;cursor:default}.product-game .bottom{padding-top:10px}.product-game .electron-arrowhead{fill:#c62828}.product-game .curly{stroke:#c62828;stroke-width:2.35;fill:none;stroke-linecap:round}.product-hint{color:#536b76}.mechanism-step #p-mechanism-result{margin-left:auto;color:#17653d;font-size:13px;font-weight:600}@media(max-width:760px){.product-game{padding:18px 14px}.mechanism-choices{grid-template-columns:repeat(2,1fr)}.product-prompt-svg{height:180px}.structure-toolbar{gap:8px;padding:9px}.structure-toolbar button{min-width:36px;min-height:38px}.editor-status{flex-wrap:wrap}.structure-editor svg{min-height:220px}.product-game .bottom{gap:7px;flex-wrap:wrap}.product-prompt{min-height:170px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+/* Keep the starting structures and the product canvas on one reaction line. */
+.product-reaction-scroll{overflow-x:auto;margin:18px 0 8px;padding-bottom:6px;}
+.product-reaction-row{display:grid;grid-template-columns:minmax(260px,.8fr) 58px minmax(400px,1.2fr);gap:14px;align-items:center;min-width:746px;}
+.product-reaction-row .product-prompt{padding:20px 8px;min-height:310px;min-width:0;}
+.product-reaction-row .product-prompt-svg{height:230px;max-width:100%;}
+.product-reaction-arrow{display:block;width:58px;height:36px;overflow:visible;}
+.product-reaction-row .structure-editor{border-radius:12px;min-width:0;}
+.product-reaction-row .structure-editor svg{height:330px;min-height:330px;}
+.editor-gate{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#f8fbfce8;color:#607782;text-align:center;padding:28px;pointer-events:none;z-index:1;}
+.editor-gate[hidden]{display:none;}
+.product-game .editor-actions{border-bottom:1px solid #d6e3e9;border-radius:0 0 12px 12px;}
+#p-drawing-help[hidden]{display:none;}
+@media(max-width:760px){.product-reaction-row{grid-template-columns:260px 48px minmax(400px,1fr);gap:12px;min-width:732px;}.product-reaction-arrow{width:48px;}.product-reaction-row .structure-editor svg{height:300px;min-height:300px;}.product-reaction-row .product-prompt{min-height:300px;}}
+
+/* Match the feedback panels used in the other mechanism sections. */
+#p-feedback,#p-type-feedback{padding:14px 18px;margin-top:20px;min-height:0;border:2px solid transparent;background:#f0f5fb;border-radius:4px;line-height:1.6;}
+#p-feedback:empty{display:none;}
+#p-feedback[data-state=correct],#p-type-feedback[data-state=correct]{background:#e9f7ed;border-color:#228443;color:#166534;}
+#p-feedback[data-state=incorrect],#p-type-feedback[data-state=incorrect]{background:#fff0f0;border-color:#c8323e;color:#a51c26;}
+#p-type-feedback{margin:12px 0;}
+
+/* A shared SVG viewport keeps the display scale stable between questions. */
+.product-reaction-row .product-prompt-svg{display:block;width:100%;height:auto;max-width:100%;}
+.product-game .curly{stroke-width:1.7;vector-effect:non-scaling-stroke;}
+.product-game .bond{stroke-width:1.35;vector-effect:non-scaling-stroke;}
+
+/* Give the chemistry more room; fit each scheme to a readable display. */
+.product-reaction-row{grid-template-columns:minmax(420px,1fr) 58px minmax(400px,1fr);min-width:906px;}
+.product-reaction-row .product-prompt-svg{width:100%;height:280px;max-width:100%;}
+@media(max-width:760px){.product-reaction-row{grid-template-columns:420px 48px minmax(400px,1fr);min-width:892px;}}
