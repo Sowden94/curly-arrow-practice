@@ -1,7 +1,17 @@
-# Updated Orgo 101 — compact GitHub package
+# Orgo 101 — corrected GitHub package
 
-Unzip this download and upload all its contents to the folder your GitHub Pages site publishes from, replacing matching files. Keep index.html at the top of that folder. Commit the changes and wait for GitHub Pages to deploy.
+The unfinished Substitution and Elimination section is excluded. The performance improvements are included.
 
-This contains the complete updated website. The molecule images are bundled into thermodynamics-bank.js, so no thermo-assets folder needs uploading. Existing files in that folder can remain in your repository.
+Unzip this download and upload its contents to the folder your GitHub Pages site publishes from, replacing matching files. Keep index.html at the top of that folder.
 
-CNAME preserves curlyarrowpractice.com. No install or build step is needed.
+If you uploaded the earlier package, delete these five files from your repository before committing:
+
+- substitution.html
+- substitution.css
+- substitution-bank.js
+- substitution-geometry.js
+- substitution.js
+
+Uploading this corrected package alone does not delete files that are already in GitHub.
+
+Commit the changes and wait for GitHub Pages to deploy. The molecule images are bundled into thermodynamics-bank.js, so no thermo-assets folder needs uploading. CNAME preserves curlyarrowpractice.com. No install or build step is needed.
