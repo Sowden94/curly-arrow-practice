@@ -1,3 +1,14 @@
+// Fetch only a likely next page, without running its scripts or opening it.
+const prefetchedPages=new Set();
+function prefetchPage(card){
+ const connection=navigator.connection;
+ if(connection?.saveData||/^(slow-)?2g$/.test(connection?.effectiveType||''))return;
+ const href=card.querySelector('.practice-choice').href;
+ if(prefetchedPages.has(href))return;
+ prefetchedPages.add(href);
+ const hint=document.createElement('link');hint.rel='prefetch';hint.href=href;
+ document.head.appendChild(hint);
+}
 // Preserve direct navigation; reveal topics on hover, keyboard focus or the toggle.
 document.querySelectorAll('.practice-card').forEach(card => {
   const toggle = card.querySelector('.topics-toggle');
@@ -22,6 +33,7 @@ document.querySelectorAll('.practice-card').forEach(card => {
   update();
   card.addEventListener('pointerenter', event => {
     if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+    prefetchPage(card);
     cancelTimers();
     openTimer = setTimeout(() => {
       hovered = true;
@@ -33,7 +45,7 @@ document.querySelectorAll('.practice-card').forEach(card => {
     cancelTimers();
     closeTimer = setTimeout(() => { hovered = false; update(); }, 180);
   });
-  card.addEventListener('focusin', () => { focused = true; dismissed = false; update(); });
+  card.addEventListener('focusin', () => { prefetchPage(card); focused = true; dismissed = false; update(); });
   card.addEventListener('focusout', event => {
     if (card.contains(event.relatedTarget)) return;
     focused = false;
