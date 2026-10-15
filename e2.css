@@ -1,0 +1,4 @@
+/* Match the product canvas width to its column so every bond keeps the same scale. */
+.practice-page.e2-page main{max-width:1500px}
+.e2-page .sn2-app{max-width:1380px}
+.e2-page .sn2-reaction-row:has(#s-product:not([hidden])){grid-template-columns:minmax(560px,1fr) 84px minmax(616px,1.1fr);min-width:1284px}

@@ -1,0 +1,16 @@
+.practice-page.sn2-page main{max-width:1440px}.sn2-app{max-width:1320px;margin:auto}.sn2-reaction-scroll{overflow-x:auto;margin:22px 0 12px}.sn2-reaction-row{display:grid;grid-template-columns:minmax(560px,1fr) 84px minmax(560px,1fr);gap:12px;align-items:center;min-width:1228px}.sn2-board{display:block;width:100%;height:auto;font-family:Arial,sans-serif;touch-action:none;user-select:none}.sn2-reaction-arrow{width:84px;height:36px}.s-hit{fill:transparent;stroke:transparent;cursor:crosshair}.s-hit:focus-visible{stroke:#163d68;stroke-width:2;outline:none}.sn2-product-placeholder{min-height:260px;display:flex;align-items:center;justify-content:center;padding:25px;text-align:center;color:#607782;border:1px dashed #c6d4e1;border-radius:8px;background:#fafcfe}.sn2-arrow-help{text-align:center;color:#52657c;font-size:14px}.sn2-app .structure-editor{border-radius:10px}.sn2-app .structure-editor svg{height:auto;min-height:0;aspect-ratio:800/520}.sn2-app [hidden]{display:none!important}.sn2-app #p-editor-section{border-top:1px solid #d8e2ee;padding-top:18px}.sn2-app #s-progress{height:100%;background:#163d68}#s-feedback{padding:14px 18px;margin-top:22px;border:2px solid transparent;border-radius:4px;background:#f0f5fb;line-height:1.6}#s-feedback:empty{display:none}#s-feedback[data-state=correct]{background:#e9f7ed;border-color:#228443;color:#166534}#s-feedback[data-state=incorrect]{background:#fff0f0;border-color:#c8323e;color:#a51c26}.sn2-app .bottom{flex-wrap:wrap}.sn2-app .curly{stroke-width:2.35}.sn2-app .bond{stroke-width:2}.sn2-app .editor-gate{font-size:14px}.sn2-app .structure-toolbar button[aria-pressed=true]{background:#163d68;color:white;border-color:#163d68}
+@media(max-width:620px){.sn2-reaction-row{grid-template-columns:560px 84px 560px;min-width:1228px;gap:12px}.sn2-reaction-arrow{width:84px}}
+
+.sn2-app [data-tool="wedge"],.sn2-app [data-tool="hash"]{display:flex;align-items:center;gap:5px;height:36px}.sn2-app .structure-toolbar .charge-tool svg{height:28px;min-height:0;aspect-ratio:auto}
+
+/* Two consistent toolbar rows; retain readable controls on narrow screens. */
+.sn2-app #p-editor-section{overflow-x:auto}
+.sn2-app .structure-toolbar{display:flex;flex-direction:column;gap:10px;min-width:920px;border-radius:10px;padding:12px}
+.sn2-app .structure-toolbar .tool-group{flex-wrap:nowrap;gap:5px}
+.sn2-app .tool-group-label{width:auto;flex:none;margin:0 7px 0 0}
+.sn2-app .structure-toolbar button{min-height:36px;height:36px;padding:5px 9px;white-space:nowrap}
+.sn2-app .structure-toolbar .tool-group[aria-label="Edit"]{grid-column:1;grid-row:2}
+.sn2-app .structure-toolbar .editor-actions{grid-column:2;grid-row:2;justify-content:flex-start;align-items:center;flex-wrap:nowrap;border:0;border-radius:0;background:transparent;padding:0;gap:6px}
+.sn2-app .structure-toolbar .editor-actions button{min-height:36px;height:36px}
+
+.sn2-app .sn2-tool-row{display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:24px}.sn2-app .sn2-tool-row .editor-actions{margin-left:auto}
