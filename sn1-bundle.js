@@ -1,3 +1,4 @@
+// products-core.js
 /* Molecular answers are marked by chemistry, independently of drawing coordinates. */
 (()=>{
 'use strict';
@@ -74,6 +75,7 @@ const api={copy,key,hydrogens,bondOrder,fromChemical,normalized,chemicalExpected
 })();
 
 ;
+// sn1-bank.js
 /* SN1 solvolysis: explicit, atom-balanced elementary steps. */
 const clone=x=>JSON.parse(JSON.stringify(x)),keyBond=(a,b)=>[a,b].sort().join('~'),LP=id=>({type:'lp',id}),BD=(a,b)=>({type:'bond',a,b});
 function formal(g,a){if(a.element==='R')return 0;return {H:1,C:4,N:5,O:6,Cl:7,Br:7,I:7}[a.element]-2*a.lp-a.h-g.bonds.filter(b=>b.a===a.id||b.b===a.id).reduce((s,b)=>s+b.order,0);}
@@ -105,6 +107,7 @@ let n=0;for(const level of['easy','moderate','hard']){const qs=[];for(let i=0;i<
 })();
 
 ;
+// geometry.js
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const pretty=s=>String(s).replace(/\d/g,d=>'₀₁₂₃₄₅₆₇₈₉'[+d]).replace(/\+/g,'⁺');
 const chemistryTopic=q=>q.chemistryTopic||q.topic;
@@ -311,6 +314,7 @@ function mountReaction(startMarkup,ls,q){
 }
 
 ;
+// addition.js
 'use strict';
 const PRACTICE_BANK=globalThis.REARRANGEMENT_BANK||globalThis.PROTON_BANK||globalThis.LEAVING_BANK||ADDITION_BANK;
 const $=id=>document.getElementById(id),done=new Set();let level='easy',index=0,placed=[],selected=null,drag=null,locked=false;
@@ -442,6 +446,7 @@ function mechanismPromptSVG(q){
 }
 
 ;
+// sn2-chemistry.js
 /* Compare stereochemistry under a connectivity mapping, rather than screen orientation. */
 (()=>{'use strict';
 function raw(g){const r=ProductChem.fromChemical(g);r.bonds=clone(g.bonds);return r;}
@@ -456,6 +461,7 @@ globalThis.SN2Chem={raw,volume,stereoMatches,check};
 })();
 
 ;
+// sn2-drawing.js
 (()=>{'use strict';const baseMarkup=additionMarkup,cache=new Map();
 function wedge(b){const segment=bondSegments(b)[0],from=b.stereoFrom===b.b?segment.b:segment.a,to=b.stereoFrom===b.b?segment.a:segment.b,length=dist(from,to),ux=(to.x-from.x)/length,uy=(to.y-from.y)/length,width=7;if(b.stereo==='wedge')return `<path class="stereo-bond" d="M${from.x} ${from.y} L${to.x-uy*width} ${to.y+ux*width} L${to.x+uy*width} ${to.y-ux*width} Z" fill="#172532"/>`;return `<g class="stereo-bond" stroke="#172532" stroke-width="1.7">`+Array.from({length:8},(_,i)=>{const t=(i+1)/9,x=from.x+(to.x-from.x)*t,y=from.y+(to.y-from.y)*t,w=width*t;return `<path d="M${x-uy*w} ${y+ux*w} L${x+uy*w} ${y-ux*w}"/>`;}).join('')+'</g>';}
 additionMarkup=function(l,q){return baseMarkup({...l,bonds:l.bonds.filter(b=>!b.stereo)},q)+l.bonds.filter(b=>b.stereo).map(wedge).join('');};
@@ -480,6 +486,7 @@ globalThis.SN2Drawing={models,route,bow,contents,productSVG,wedge};
 })();
 
 ;
+// sn1-drawing.js
 /* SN1 uses the reviewed labels, charges, lone pairs and curved arrow geometry. */
 (()=>{'use strict';const cache=new Map(),options={compactOxygenBonds:true,tightPositiveOxygen:true,negativeChargeAbove:true,raisedNegativeCharges:true,chargePairClearance:17,cardinalPairs:true};
 function visible(q,g,final=false){const parts=ProductChem.components(g),ids=new Set();for(const part of parts){const organic=part.atoms.some(a=>a.id==='c'),involved=q.moves?.some(m=>[m.from.id,m.from.a,m.from.b,m.to.id,m.to.a,m.to.b].some(id=>part.atoms.some(a=>a.id===id)));if(final||organic||involved)for(const a of part.atoms)ids.add(a.id);}return{atoms:g.atoms.filter(a=>ids.has(a.id)),bonds:g.bonds.filter(b=>ids.has(b.a)&&ids.has(b.b))};}
@@ -517,6 +524,7 @@ function productSVG(q){const m=productModel(q),l=m.product,f=m;return `<svg clas
 globalThis.SN1Drawing={models,route,contents,productSVG,productModel,productContents};})();
 
 ;
+// products-editor.js
 /* Small, dependency-free molecular sketcher. Answer chemistry lives in ProductChem. */
 (()=>{'use strict';
 const $=id=>document.getElementById(id),cp=ProductChem.copy;
@@ -556,6 +564,7 @@ globalThis.StructureEditor=StructureEditor;
 })();
 
 ;
+// sn2-editor.js
 /* Wedge tools are local to SN2; the previously reviewed editor is unchanged. */
 (()=>{'use strict';class SN2Editor extends StructureEditor{
 target(e,p){const t=super.target(e,p);if(t.atom||t.bond!==undefined)return t;const nearest=this.layout.bonds.filter(b=>!this.hidden.has(b.a)&&!this.hidden.has(b.b)).map(b=>({b,d:Math.min(...bondSegments(b).map(segment=>segmentDistance(p,segment.a,segment.b)))})).filter(x=>x.d<10).sort((a,b)=>a.d-b.d)[0];return nearest?{bond:this.graph.bonds.findIndex(b=>ProductChem.key(b.a,b.b)===ProductChem.key(nearest.b.a,nearest.b.b))}:t;}
@@ -572,6 +581,7 @@ render(cursor=false){super.render(cursor);if(this.tool==='wedge'||this.tool==='h
 globalThis.SN2Editor=SN2Editor;})();
 
 ;
+// sn1.js
 (()=>{'use strict';const $=id=>document.getElementById(id),drafts=new Map(),done=new Set(),positions=new Map();let level='easy',index=0,active=null,loading=false,selected=null,drag=null;const questions=()=>SN1_BANK.filter(q=>q.level===level),whole=()=>questions()[index],current=(step=0)=>{const q=whole();return {...q.steps[step],level:q.level,finalProduct:q.product,explanation:q.explanation,whole:q};},fresh=()=>({arrows:[],arrowsCorrect:false,graph:{atoms:[],bonds:[]}});let state=fresh();
 const editor=new SN2Editor(()=>{if(!loading&&active){state.graph=editor.getGraph();save();tell('');}});
 function tell(message,status=''){$('s-feedback').textContent=message;$('s-feedback').dataset.state=status;}

@@ -1,13 +1,13 @@
-# Orgo 101 — GitHub Pages files, v300
+# Orgo 101 — GitHub Pages files, v305
 
-Updated 19 October 2026. Includes the current SN1 and E1 question sets, E1 styling fixes and larger product drawing box. The experimental extra E1 hydrogens have been removed.
+Updated 22 October 2026. Includes Predict the Reaction and Products, separate answer feedback, consistent structure sizes and the centred reaction layout.
 
 1. Extract this ZIP.
-2. Upload the extracted files to your existing GitHub Pages publishing folder, replacing matching files. Keep index.html at the top level. Do not upload the ZIP itself.
+2. Upload the files inside the extracted folder to your existing GitHub Pages publishing folder, replacing matching files. Keep index.html at the top level. Do not upload the ZIP itself.
 3. Commit the changes and allow GitHub Pages to deploy.
 
 No installation or build is required. CNAME preserves curlyarrowpractice.com. Keep .nojekyll.
 
-Chemical illustrations are bundled into thermodynamics-bank.js to keep the upload below 100 files. SN1 and E1 scripts are bundled in their original order to reduce the upload file count.
+Illustrations and selected scripts are bundled to keep the upload below GitHub's 100-file limit. All approved sections are included.
 
-If abandoned draft files remain in your repository, delete these obsolete files: substitution.html, substitution.css, substitution-bank.js, substitution-geometry.js, substitution.js. The approved Substitution and Elimination sections use different filenames and are included.
+If abandoned draft files remain, delete substitution.html, substitution.css, substitution-bank.js, substitution-geometry.js and substitution.js. The current approved sections use different filenames.
