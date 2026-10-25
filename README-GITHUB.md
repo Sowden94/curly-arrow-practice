@@ -1,6 +1,6 @@
-# Orgo 101 — GitHub Pages files, v305
+# Orgo 101 — GitHub Pages files, v323
 
-Updated 22 October 2026. Includes Predict the Reaction and Products, separate answer feedback, consistent structure sizes and the centred reaction layout.
+Updated 25 October 2026. Includes Compound Naming, Functional Groups, alkyl halide, alkene, alkyne and alcohol naming, plus the latest approved OH spacing and toolbar styling.
 
 1. Extract this ZIP.
 2. Upload the files inside the extracted folder to your existing GitHub Pages publishing folder, replacing matching files. Keep index.html at the top level. Do not upload the ZIP itself.
