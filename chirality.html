@@ -79,7 +79,7 @@ header{justify-content:space-between}.brand{text-decoration:none}.site-nav{displ
 /* Keep acid–base bonds, labels and arrows at one display scale across questions. */
 .reaction-canvas.practice-reaction{min-width:0;max-width:100%;height:auto!important;max-height:none;margin-inline:auto}
 </style><style>/* Shared practice-page theme. Chemistry drawing styles remain in style.css. */
-.practice-page { background: #edf3f9; color: #163d68; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+.practice-page { background: #edf3f9; color: #163d68; font-family: Arial, sans-serif; }
 .practice-page main { max-width: 1280px; padding: 32px 36px 30px; }
 .practice-page header { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 24px 22px 20px; background: #163d68; border: 0; border-radius: 4px; text-align: center; }
 .practice-page .brand { color: #fff; font-size: 32px; font-weight: 800; letter-spacing: -1.2px; }
@@ -141,13 +141,16 @@ header{justify-content:space-between}.brand{text-decoration:none}.site-nav{displ
 
 /* The selected tabs already identify the question type and difficulty. */
 .practice-page .game > .family { display: none !important; }
+
+/* Shared typography for all question pages and chemical labels. */
+.practice-page button,.practice-page select,.practice-page input,.practice-page textarea{font-family:Arial,sans-serif}svg text{font-family:Arial,sans-serif}
 </style><style>/* One readable index size for HTML formulas and SVG molecular labels. */
 body sub,body sup{font-size:85%;line-height:0;position:relative;vertical-align:baseline;font-weight:inherit}
 body sub{bottom:-.22em}
 body sup{top:-.38em}
 body svg tspan[baseline-shift="sub"],body svg tspan[baseline-shift="super"],body svg tspan[baseline-shift="sup"]{font-size:85%}
 </style></head><body class="practice-page"><a class="skip-link" href="#main-content">Skip to questions</a><main id="main-content">
-<header><a class="brand" href="index.html?v=301">Orgo 101</a><nav class="site-nav"><a href="curly.html?v=301">Curly Arrow</a><a href="naming.html?v=321">Compound Naming</a><a href="newman.html?v=301">Newman Projection</a><a href="chair.html?v=301">Chair Conformation</a><a class="active" href="chirality-practice.html?v=301">Stereochemistry</a><a href="thermodynamics.html?v=301">Thermodynamics and Kinetics</a><a href="mechanism.html?v=301">Mechanism 101</a><a href="substitution-elimination.html?v=354">Substitution and Elimination</a><a href="alkene-additions.html?v=332">Alkene Additions</a></nav></header>
+<header><a class="brand" href="index.html?v=301">Orgo 101</a><nav class="site-nav"><a href="curly.html?v=301">Curly Arrow</a><a href="naming.html?v=321">Compound Naming</a><a href="newman.html?v=301">Newman Projection</a><a href="chair.html?v=301">Chair Conformation</a><a class="active" href="chirality-practice.html?v=301">Stereochemistry</a><a href="thermodynamics.html?v=301">Thermodynamics and Kinetics</a><a href="mechanism.html?v=301">Mechanism 101</a><a href="substitution-elimination.html?v=354">Substitution and Elimination</a><a href="alkene-additions.html?v=332">Alkene Additions</a><a href="alkyne-chemistry.html">Alkyne Chemistry</a><a href="radicals.html">Radicals</a></nav></header>
 <div class="heading naming-heading"><h1>Stereochemistry</h1><p>Identify chiral molecules, assign configurations, and compare stereoisomers.</p></div>
 <div class="chirality-app">
 <div class="mode-picker" role="group" aria-label="Question type"><button id="chiral-mode-identify" aria-pressed="true">Chiral or Achiral <span>60</span></button><button id="chiral-mode-priority" aria-pressed="false">Assign Priorities <span>60</span></button><button id="chiral-mode-assign" aria-pressed="false">Assign R/S <span>60</span></button><button id="chiral-mode-ez" aria-pressed="false">Assign E/Z <span>60</span></button><button id="chiral-mode-fischer" aria-pressed="false">Fischer Projections <span>60</span></button><button id="chiral-mode-relation" aria-pressed="false">Stereoisomer Relationships <span>60</span></button><button id="chiral-mode-count" aria-pressed="false">Count Stereoisomers <span>60</span></button></div>

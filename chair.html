@@ -83,7 +83,7 @@ header{justify-content:space-between}.brand{text-decoration:none}.site-nav{displ
 .chair-slot.filled circle{fill:transparent;stroke:transparent}.chair-slot.filled .chair-atom{font:23px Arial,sans-serif;fill:#111}.chair-slot.filled:focus circle{stroke:#4169e1;fill:transparent}
 .chair-bond{stroke-width:2;stroke-linejoin:round}
 </style><style>/* Shared practice-page theme. Chemistry drawing styles remain in style.css. */
-.practice-page { background: #edf3f9; color: #163d68; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+.practice-page { background: #edf3f9; color: #163d68; font-family: Arial, sans-serif; }
 .practice-page main { max-width: 1280px; padding: 32px 36px 30px; }
 .practice-page header { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 24px 22px 20px; background: #163d68; border: 0; border-radius: 4px; text-align: center; }
 .practice-page .brand { color: #fff; font-size: 32px; font-weight: 800; letter-spacing: -1.2px; }
@@ -145,13 +145,16 @@ header{justify-content:space-between}.brand{text-decoration:none}.site-nav{displ
 
 /* The selected tabs already identify the question type and difficulty. */
 .practice-page .game > .family { display: none !important; }
+
+/* Shared typography for all question pages and chemical labels. */
+.practice-page button,.practice-page select,.practice-page input,.practice-page textarea{font-family:Arial,sans-serif}svg text{font-family:Arial,sans-serif}
 </style><style>/* One readable index size for HTML formulas and SVG molecular labels. */
 body sub,body sup{font-size:85%;line-height:0;position:relative;vertical-align:baseline;font-weight:inherit}
 body sub{bottom:-.22em}
 body sup{top:-.38em}
 body svg tspan[baseline-shift="sub"],body svg tspan[baseline-shift="super"],body svg tspan[baseline-shift="sup"]{font-size:85%}
 </style></head><body class="practice-page"><a class="skip-link" href="#main-content">Skip to questions</a><main id="main-content">
-<header><a class="brand" href="index.html?v=301">Orgo 101</a><nav class="site-nav"><a href="curly.html?v=301">Curly Arrow</a><a href="naming.html?v=321">Compound Naming</a><a href="newman.html?v=301">Newman Projection</a><a class="active" href="chair.html?v=301">Chair Conformation</a><a href="chirality-practice.html?v=301">Stereochemistry</a><a href="thermodynamics.html?v=301">Thermodynamics and Kinetics</a><a href="mechanism.html?v=301">Mechanism 101</a><a href="substitution-elimination.html?v=354">Substitution and Elimination</a><a href="alkene-additions.html?v=332">Alkene Additions</a></nav></header>
+<header><a class="brand" href="index.html?v=301">Orgo 101</a><nav class="site-nav"><a href="curly.html?v=301">Curly Arrow</a><a href="naming.html?v=321">Compound Naming</a><a href="newman.html?v=301">Newman Projection</a><a class="active" href="chair.html?v=301">Chair Conformation</a><a href="chirality-practice.html?v=301">Stereochemistry</a><a href="thermodynamics.html?v=301">Thermodynamics and Kinetics</a><a href="mechanism.html?v=301">Mechanism 101</a><a href="substitution-elimination.html?v=354">Substitution and Elimination</a><a href="alkene-additions.html?v=332">Alkene Additions</a><a href="alkyne-chemistry.html">Alkyne Chemistry</a><a href="radicals.html">Radicals</a></nav></header>
 <div class="heading"><h1>Chair Conformation</h1><p>Identify substituent positions, practise chair flips, and compare stability.</p></div>
 <div class="mode-picker" aria-label="Question type"><button data-mode="identify" aria-pressed="true">Axial or Equatorial? <span>60</span></button><button data-mode="flip" aria-pressed="false">Chair Flips <span>60</span></button><button data-mode="stable" aria-pressed="false">Most Stable Chair <span>60</span></button></div>
 <div class="naming-levels" aria-label="Difficulty"><button data-level="easy" aria-pressed="true">Easy <span>20</span></button><button data-level="moderate" aria-pressed="false">Moderate <span>20</span></button><button data-level="hard" aria-pressed="false">Hard <span>20</span></button></div>

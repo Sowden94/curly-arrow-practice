@@ -79,7 +79,7 @@ header{justify-content:space-between}.brand{text-decoration:none}.site-nav{displ
 /* Keep acid–base bonds, labels and arrows at one display scale across questions. */
 .reaction-canvas.practice-reaction{min-width:0;max-width:100%;height:auto!important;max-height:none;margin-inline:auto}
 </style><style>/* Shared practice-page theme. Chemistry drawing styles remain in style.css. */
-.practice-page { background: #edf3f9; color: #163d68; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+.practice-page { background: #edf3f9; color: #163d68; font-family: Arial, sans-serif; }
 .practice-page main { max-width: 1280px; padding: 32px 36px 30px; }
 .practice-page header { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 24px 22px 20px; background: #163d68; border: 0; border-radius: 4px; text-align: center; }
 .practice-page .brand { color: #fff; font-size: 32px; font-weight: 800; letter-spacing: -1.2px; }
@@ -141,6 +141,9 @@ header{justify-content:space-between}.brand{text-decoration:none}.site-nav{displ
 
 /* The selected tabs already identify the question type and difficulty. */
 .practice-page .game > .family { display: none !important; }
+
+/* Shared typography for all question pages and chemical labels. */
+.practice-page button,.practice-page select,.practice-page input,.practice-page textarea{font-family:Arial,sans-serif}svg text{font-family:Arial,sans-serif}
 </style><style>.mechanism-app .game { padding: 28px; }
 .mechanism-app h2 { text-align: center; font-size: clamp(21px,3vw,26px); }
 #m-progress { height: 100%; background: #163d68; }
@@ -197,6 +200,6 @@ body sub{bottom:-.22em}
 body sup{top:-.38em}
 body svg tspan[baseline-shift="sub"],body svg tspan[baseline-shift="super"],body svg tspan[baseline-shift="sup"]{font-size:85%}
 </style></head><body class="practice-page"><a class="skip-link" href="#main-content">Skip to questions</a><main id="main-content">
-<header><a class="brand" href="index.html?v=301">Orgo 101</a><nav class="site-nav"><a href="curly.html?v=301">Curly Arrow</a><a href="naming.html?v=321">Compound Naming</a><a href="newman.html?v=301">Newman Projection</a><a href="chair.html?v=301">Chair Conformation</a><a href="chirality-practice.html?v=301">Stereochemistry</a><a href="thermodynamics.html?v=301">Thermodynamics and Kinetics</a><a href="mechanism.html?v=301">Mechanism 101</a><a href="substitution-elimination.html?v=354" class="active">Substitution and Elimination</a><a href="alkene-additions.html?v=332">Alkene Additions</a></nav></header>
+<header><a class="brand" href="index.html?v=301">Orgo 101</a><nav class="site-nav"><a href="curly.html?v=301">Curly Arrow</a><a href="naming.html?v=321">Compound Naming</a><a href="newman.html?v=301">Newman Projection</a><a href="chair.html?v=301">Chair Conformation</a><a href="chirality-practice.html?v=301">Stereochemistry</a><a href="thermodynamics.html?v=301">Thermodynamics and Kinetics</a><a href="mechanism.html?v=301">Mechanism 101</a><a href="substitution-elimination.html?v=354" class="active">Substitution and Elimination</a><a href="alkene-additions.html?v=332">Alkene Additions</a><a href="alkyne-chemistry.html">Alkyne Chemistry</a><a href="radicals.html">Radicals</a></nav></header>
 <div class="heading"><h1>Identify the Reaction Type</h1></div><p class="substitution-back"><a href="substitution-elimination.html?v=354">← All substitution and elimination question sets</a></p><nav class="mechanism-topics" aria-label="Identification question sets"><a href="alkyl-halides.html?v=355">Identify the Alkyl Halide</a><a href="reaction-types.html?v=355" aria-current="page">Identify the Reaction Type</a></nav>
 <div class="reaction-types-app"><div class="naming-levels" role="group" aria-label="Difficulty"><button data-rt-level="easy" aria-pressed="true">Easy</button><button data-rt-level="moderate" aria-pressed="false">Moderate</button><button data-rt-level="hard" aria-pressed="false">Hard</button></div><label class="question-picker" for="rt-question">Choose a Question<select id="rt-question"></select></label><section class="game"><div class="top"><span id="rt-count"></span><span id="rt-score"></span></div><div class="track"><div id="rt-progress"></div></div><h2 id="rt-title"></h2><p class="reaction-types-help">Use the starting material, reagents and product shown to identify the reaction type. Classify the pathway to the displayed organic product; competing products are omitted.</p><div id="rt-diagram" class="reaction-type-scroll"></div><div class="reaction-types-answers" role="group" aria-label="Reaction type"><button data-rt-answer="SN1" aria-pressed="false" aria-label="SN1">S<sub>N</sub>1</button><button data-rt-answer="SN2" aria-pressed="false" aria-label="SN2">S<sub>N</sub>2</button><button data-rt-answer="E1" aria-pressed="false">E1</button><button data-rt-answer="E2" aria-pressed="false">E2</button></div><div id="rt-feedback" role="status" aria-live="polite"></div><div class="bottom naming-bottom"><button id="rt-previous">Previous</button><button id="rt-hint">Hint</button><button id="rt-check" class="primary">Check Answer</button><button id="rt-next">Next</button></div></section></div><footer>© 2026 M. J. Sowden. Orgo 101. All rights reserved.</footer></main><script defer src="orgo-a6d08a3ac155fb6a.js"></script></body></html>
